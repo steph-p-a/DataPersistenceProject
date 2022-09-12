@@ -72,5 +72,10 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if (GameManager.Instance != null && m_Points > GameManager.Instance.highScore)
+        {
+            GameManager.Instance.NewHighScore(m_Points);
+        }         
     }
 }
